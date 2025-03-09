@@ -25,32 +25,11 @@ Module system
 
 It can be used in both TypeScript and JavaScript. In TypeScript, the definition should be automatically resolved via `package.json`. ([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
 
-### Building
+### Installation
 
 To build and compile the typescript sources to javascript use:
 ```
-npm install
-npm run build
-```
-
-### Publishing
-
-First build the package then run ```npm publish```
-
-### Consuming
-
-navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
 npm install @tikhub/tikhub-api-ts-sdk@1.0.0 --save
-```
-
-_unPublished (not recommended):_
-
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
 ```
 
 ## **🌟 Features**
@@ -77,18 +56,15 @@ npm install @tikhub/tikhub-api-ts-sdk --save
 Before making API requests, configure the **API Client** with your **API Key** and ​**Base URL**​.
 
 ```ts
-import { Configuration, ApiClient } from "@tikhub/tikhub-api-ts-sdk";
+import { Configuration } from "@tikhubio/tikhub-api-ts-sdk";
 
 // Create an API configuration instance
 const config = new Configuration({
   basePath: "https://api.tikhub.io",  // ✅ Set API base URL
-  apiKey: "YOUR_API_KEY",             // ✅ Set API Key for authentication
+  accessToken: "YOUR_API_KEY",             // ✅ Set API Key for authentication
 });
 
-// Create the API client instance
-const client = new ApiClient(config);
-
-console.log("TikHub API Client initialized!");
+console.log("TikHub API Client Config initialized!");
 ```
 
 📌 **Replace `YOUR_API_KEY`** with your actual API key.
@@ -102,27 +78,27 @@ console.log("TikHub API Client initialized!");
 Fetch videos associated with a given hashtag.
 
 ```typescript
-import { TikTokAppV3APIApi } from 'tikhub-api-sdk';
+import { TikTokAppV3APIApi } from '@tikhubio/tikhub-api-ts-sdk';
 
 const api = new TikTokAppV3APIApi(config);
 
-async function fetchHashtagVideos() {
-  try {
-    const response = await api.fetchHashtagVideoListApiV1TiktokAppV3FetchHashtagVideoListGet('dance', 0, 10);
-    console.log('Hashtag Video List:', response.data);
-  } catch (error) {
-    console.error('Error fetching hashtag videos:', error);
-  }
+async function fetchUserProfile() {
+    try {
+        const response = await api.handlerUserProfileApiV1TiktokAppV3HandlerUserProfileGet_52('', 'MS4wLjABAAAAv7iSuuXDJGDvJkmH_vz1qkDZYo1apxgzaxdBSeIuPiM', '', '');
+        console.log('User Profile Info:', response.data);
+    } catch (error) {
+        console.error('Error fetching User profile info:', error);
+    };
 }
 
-fetchHashtagVideos();
+fetchUserProfile();
 ```
 
 🔹 **Parameters:**
 
-* `chId`: Hashtag ID (string)
-* `cursor`: Pagination cursor (default: `0`)
-* `count`: Number of results to fetch (default: `10`)
+* `userId`: User ID (string) Optional
+* `secUserId`: Secondary User ID (string) Optional
+* `uniqueId`: Unique ID (string) Optional
 
 ---
 
@@ -131,20 +107,20 @@ fetchHashtagVideos();
 Retrieve TikTok's recommended videos based on cookies.
 
 ```typescript
-import { TikTokAppV3APIApi, TikTokAppV3HomeFeed } from 'tikhub-api-sdk';
+import { TikTokAppV3APIApi, TikTokAppV3HomeFeed } from '@tikhubio/tikhub-api-ts-sdk';
 
 const api = new TikTokAppV3APIApi(config);
 
 async function fetchHomeFeed() {
-  try {
-    const requestBody: TikTokAppV3HomeFeed = {
-      cookie: 'your_tiktok_cookie_here',
-    };
-    const response = await api.fetchHomeFeedApiV1TiktokAppV3FetchHomeFeedPost(requestBody);
-    console.log('Home Feed:', response.data);
-  } catch (error) {
-    console.error('Error fetching home feed:', error);
-  }
+    try {
+        const TikTokAppV3HomeFeed = {
+            cookie: 'your_tiktok_cookie_here',
+        };
+        const response = await api.fetchHomeFeedApiV1TiktokAppV3FetchHomeFeedPost(TikTokAppV3HomeFeed);
+        console.log('Home Feed:', response.data);
+    } catch (error) {
+        console.error('Error fetching home feed:', error);
+    }
 }
 
 fetchHomeFeed();
@@ -161,7 +137,7 @@ fetchHomeFeed();
 Retrieve TikTok user profile information.
 
 ```typescript
-import { TikTokAppV3APIApi } from 'tikhub-api-sdk';
+import { TikTokAppV3APIApi } from '@tikhubio/tikhub-api-ts-sdk';
 
 const api = new TikTokAppV3APIApi(config);
 

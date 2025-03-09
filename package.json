@@ -1,14 +1,19 @@
 {
-  "name": "@tikhub/tikhub-api-ts-sdk",
+  "name": "@tikhubio/tikhub-api-ts-sdk",
   "version": "1.0.0",
-  "description": "OpenAPI client for @tikhub/tikhub-api-ts-sdk",
+  "description": "OpenAPI client for @tikhubio/tikhub-api-ts-sdk",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "axios",
     "typescript",
     "openapi-client",
     "openapi-generator",
-    "@tikhub/tikhub-api-ts-sdk"
+    "tikhubio",
+    "sdk",
+    "crawler",
+    "api",
+    "tikhub-api-ts-sdk",
+    "@tikhubio/tikhub-api-ts-sdk"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
@@ -25,6 +30,7 @@
     "typescript": "^3.6.4"
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   }
 }
