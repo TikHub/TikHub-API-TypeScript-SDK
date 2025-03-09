@@ -12,8 +12,6 @@
  */
 
 
-import { Null } from './null';
-
 /**
  * APIKeyData
  * @export
@@ -43,7 +41,7 @@ export interface ApiKeyData {
      * @type {string | Null}
      * @memberof ApiKeyData
      */
-    expiresAt: string | Null;
+    expiresAt: string | null;
     /**
      * Api Key Status
      * @type {number}

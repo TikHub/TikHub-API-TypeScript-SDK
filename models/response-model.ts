@@ -12,8 +12,6 @@
  */
 
 
-import { Null } from './null';
-
 /**
  * ResponseModel
  * @export
@@ -43,7 +41,7 @@ export interface ResponseModel {
      * @type {string | Null}
      * @memberof ResponseModel
      */
-    data?: string | Null;
+    data?: string | null;
 }
 
 
