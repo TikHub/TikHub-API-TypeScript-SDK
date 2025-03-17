@@ -29,7 +29,7 @@ It can be used in both TypeScript and JavaScript. In TypeScript, the definition 
 
 To build and compile the typescript sources to javascript use:
 ```
-npm install @tikhub/tikhub-api-ts-sdk@1.0.0 --save
+npm i @tikhubio/tikhub-api-ts-sdk
 ```
 
 ## **🌟 Features**
@@ -46,7 +46,7 @@ npm install @tikhub/tikhub-api-ts-sdk@1.0.0 --save
 Install via **npm**:
 
 ```sh
-npm install @tikhub/tikhub-api-ts-sdk --save
+npm i @tikhubio/tikhub-api-ts-sdk --save
 ```
 
 ---
